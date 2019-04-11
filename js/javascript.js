@@ -1,4 +1,5 @@
 (function() {
+
 	let toggle = document.querySelector('#toggle');
 	let target = document.querySelector('#quote');
 
@@ -8,4 +9,5 @@
 		toggle.setAttribute('aria-expanded', !expanded);
 		target.hidden = expanded;
 	}
+
 })()

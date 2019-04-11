@@ -1,13 +1,12 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="nl">
 <head>
 	<meta charset="utf-8">
 
-	<title>aria-live - workshop: Who's afraid of ARIA</title>
+	<title>aria-live - Wie is er bang voor ARIA</title>
 	<meta name="author" content="Rian Rietveld">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <body>
 
 <header role="banner">
@@ -16,109 +15,36 @@
 
 <main>
 
-	<p>Announce what changing?</p>
+	<p>Vertel wat dynamisch verandert.</p>
 
-	<p><code>aria-live="polite"</code> : wait until the user stops interacting<br/>
-		<code>aria-live="assertive"</code> : immediately</p>
+	<div class="demo-link">
 
-	<p><code>aria-relevant</code> : what changes are relevant to announce<br/>
-		<code>aria-atomic</code> : announce everything that is changing within the region (element)</p>
+		<div aria-live="polite" id="notice" class="notice"></div>
 
-	<form class="form-chars-remaining">
+		<div>
+			<label for="some-text">Uw naam</label>
+			<input type="text" id="some-text">
+		</div>
 
-		<label for="message">Your Message:</label><br />
-		<textarea id="message"  aria-describedby="chars-remaining"></textarea>
+		<button id="submit">Verstuur</button>
 
-		<p id="chars-remaining">
-            <span id="live-region-text" aria-live="polite">
-            <span class="count">150</span> characters remaining
-            </span>
-			of 150 characters
-		</p>
-	</form>
+	</div>
 
-	<p>Code forked from <a href="https://dequeuniversity.com/">Deque University</a>.</p>
 	<pre>
-    <code>
-    &lt;form>
-        &lt;div class="field">
-            &lt;label for="message">Your Message:&lt;/label>
-            &lt;textarea id="message"  aria-describedby="chars-remaining">&lt;/textarea>
-        &lt;/div>
+HTML code:
+&lt;form>
+	&lt;p aria-live="polite" id="notice">&lt;/p>
 
-        &lt;p id="chars-remaining">
-            &lt;span id="live-region-text" aria-live="polite">
-              &lt;span class="count">150&lt;/span> characters remaining
-            &lt;/span>
-            of 150 characters
-        &lt;/p>
-    &lt;/form>
-    </code>
+	&lt;label for="some-text">Uw naam&lt;/label>
+	&lt;input id="some-text" type="text">
+
+	&lt;button id="submit">Verstuur&lt;/button>
+&lt;/form>
+
     </pre>
 
 
-	<p>More examples on <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">MDN web docs</a></p>
-
-
-	<h2>wp.a11y.speak()</h2>
-
-	For example:
-
-	<pre>
-    <code>
-	In functions.php (or where you store your actions)
-
-	add_action( 'wp_enqueue_scripts', 'yourprefix_ajax' );
-
-	function yourprefix_ajax() {
-
-		// Register the script.
-		wp_register_script( 'your-prefix-ajax', get_template_directory_uri() . '/assets/js/your-ajax-file.js',
-			[
-				'wp-a11y',
-			],
-			false,
-			true
-	);
-
-	// Localization.
-	wp_localize_script( 'your-prefix-ajax', 'yourData', [
-		strings' => [
-			'resultsFound' => esc_html__( 'New results found and displayed in the table below', 'your-theme' )
-			],
-	    ] );
-		wp_enqueue_script( 'your-prefix-ajax' );
-	}
-    </code>
-    </pre>
-
-	In your-ajax-js file
-	<pre>
-    <code>
-	// Announce change of data in the table.
-	wp.a11y.speak( yourData.strings.resultsFound, 'polite' );
-	</code>
-	</pre>
-	The generated output in the bottom of yout HTML body
-	<pre>
-    <code>
-	&lt;div id="wp-a11y-speak-polite"
-	    aria-live="polite"
-	    aria-relevant="additions text"
-	    aria-atomic="true"
-	    class="screen-reader-text wp-a11y-speak-region">
-
-		New results found and displayed in the table below.
-
-	&lt;/div>
-	</code>
-	</pre>
-
-	<p><a href="https://make.wordpress.org/accessibility/handbook/markup/wp-a11y-speak/">wp.a11y.speak() in the WPa11y handbook</a></p>
-
-	<p><a href="https://github.com/samikeijonen/wp-a11y-speak">Explanation and demo wp.a11y.speak() by Sami Keijonen</a></p>
-
-	<p><a href="index.html">Back to start page</a></p>
+	<p>Meer voorbeelden op <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">MDN web docs</a></p>
 
 </main>
 
@@ -132,106 +58,7 @@
 	</ul>
 
 </footer>
-<script type="text/javascript">
-	$(document).ready(charsRemaining);
-	var politeIdx = 0;
-	function charsRemaining() {
-		var cachedLength;
-		var politeQueue = true;
-		var alreadyAlerted = false;
-		// the total number of characters allowed:
-		var totalChars = 150;
-		// the number of characters that
-		// triggers the polite announcement:
-		var politeFlag = 80;
-		// the number of characters that
-		// triggers the assertive announcement:
-		var assertiveFlag = 130;
-		var $message = $('#message');
-		var $alertDialog = $('#zero-characters');
-		var $close = $('#close-char-modal');
-		$message.attr('maxlength', totalChars);
-		$message.on('keyup', function (e) {
-			// maxlength polyfill:
-			// Get the value
-			var text = $(this).val();
-			// Get the maxlength
-			var limit = $(this).attr('maxlength') || totalChars;
-			// Check if the length exceeds what is permitted
-			if(text.length > limit){
-				// Truncate the text if necessary
-				$(this).val(text.substr(0, limit));
-			}
-			// chars remaining / alert dialog:
-			var realLength = $message.val().length;
-			var remaining = totalChars - realLength;
-			updateRemaining(remaining);
-			if (remaining <= 0) {
-				if (!alreadyAlerted) {
-					// show the dialog
-					cachedLength = null;
-					$alertDialog.show();
-					$('#close-char-modal')
-						.first()
-						.focus();
-				}
-			}
-			// if we have set the cachedLength (when the dialog was closed),
-			// lets check if the length has changed, and if it has, reset the
-			// alert boolean.
-			if (cachedLength && alreadyAlerted) {
-				// check if it has changed...
-				if (cachedLength !== $message.val().length) {
-					alreadyAlerted = false;
-				}
-			}
-			// 70-60 atomic true
-			// 60 set it to false
-			// 20 atomic true
-			if (realLength >= politeFlag && realLength < assertiveFlag) {
-				// polite announcement...
-				$('#live-region-text').attr('aria-live', 'polite');
-				if (realLength >= 90) {
-					$('#live-region-text').attr('aria-atomic', 'false');
-				} else {
-					$('#live-region-text').attr('aria-atomic', 'true');
-				}
-			} else if (realLength >= assertiveFlag) {
-				// assertive announcement...
-				$('#live-region-text').attr({
-					'aria-live': 'assertive',
-					'aria-atomic': 'true'
-				});
-			} else { // clean up (remove the aria-live and aria-atomic attributes)
-				$('#live-region-text')
-					.removeAttr('aria-live')
-					.removeAttr('aria-atomic');
-			}
-		});
-		$alertDialog.on('keydown', function (e) {
-			var which = e.which;
-			if (which === 9) {
-				e.preventDefault();
-			} else if (which === 27) {
-				$close.click();
-			}
-		});
-	}
-	function updateRemaining(charsLeft) {
-		$('#chars-remaining .count').html(charsLeft);
-	}
-	function nonSpecialKey(code) {
-		var nonSpecial = false;
-		if ((code >= 48 && code <= 57) || (code >= 65 && code <= 90)) {
-			nonSpecial = true;
-		}
-		return nonSpecial;
-	}
-	function noAtomic(num) {
-		var stringNum = num.toString();
-		var lastDigit = parseInt(stringNum[stringNum.length - 1], 10);
-		return lastDigit !== 0 && lastDigit !== 5;
-	}
-</script>
+
+<script src="js/aria-live.js"></script>
 
 </body>

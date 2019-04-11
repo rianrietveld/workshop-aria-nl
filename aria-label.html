@@ -1,10 +1,10 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="nl">
 <head>
 	<meta charset="utf-8">
 
-	<title>aria-label - workshop: Who's afraid of ARIA</title>
+	<title>aria-label - - Wie is er bang van ARIA</title>
 	<meta name="author" content="Rian Rietveld">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -12,153 +12,149 @@
 <body>
 
 <header role="banner">
-	<h1>aria-label</h1>
+	<h1>aria-label voor links</h1>
 </header>
 
 <main>
 
-	<p>With an aria label you can add additional information about an element.</p>
+	<p>Met een aria-label op links kun je de inhoud overschrijven en er wat duidelijkers van maken.</p>
 
-	<div class="highlight">
-	<p>1: Without aria-label:</p>
-	<pre>
-    &lt;a href="your-url"&gt;
-        edit
-    &lt;/a&gt;
-	</pre>
+	<p class="demo-link">
+		1: Link, zonder aria-label:<br />
+		<a href="#" >lees meer</a>
+	</p>
 
-	<a href="#">edit</a>
-	</div>
+<pre>
+HTML:
+&lt;a href="your-url"&gt;
+	lees meer
+&lt;/a&gt;
+</pre>
 
-	<div class="highlight">
-	<p>2: With aria-label "edit my awesome post":</p>
+	<p class="demo-link">
+		2: Link met aria-label "lees meer over toegankelijke websites":<br />
+		<a href="#" aria-label="lees meer over toegankelijke websites">lees meer</a>
+	</p>
 
-	<pre>
-	&lt;a href="your-url"
-		aria-label="edit my awesome post"&gt;
-		edit
-	&lt;/a&gt;
-	</pre>
-
-	<a href="#" aria-label="edit: my awesome post">edit</a>
-	</div>
-
-	<div class="highlight">
-	<p>3. But beware: an aria-label overrides the link text:</p>
-
-	<pre>
-    &lt;a href="your-url"
-        aria-label="edit my awesome post"&gt;
-		delete
-	&lt;/a&gt;
-	</pre>
-
-	<a href="#" aria-label="edit: my awesome post">delete</a>
-	</div>
-
-	<div class="highlight">
-	<p>4. Or don't use ARIA but the .screen-reader-text class</p>
-	<pre>
-    &lt;a href="your-url"&gt;
-         edit&lt;span class="screen-reader-text"> my awesome post&lt;/span>
-    &lt;/a&gt;
-	</pre>
-
-	<a href="#">edit<span class="screen-reader-text">: my awesome post</span></a>
-	</div>
+<pre>
+HTML:
+&lt;a href="your-url"
+	aria-label="lees meer over toegankelijke websites"&gt;
+	lees meer
+&lt;a&gt;
+</pre>
 
 
-	<div class="highlight">
-		<p>no link text versus aria-label versus .screen-reader-text class</p>
+	<p class="demo-link">
+		3. Maar pas op! Een aria-label overschrijft de linktekst:<br />
+		<a href="#" aria-label="lees meer over bijen houden">lees meer</a>
+	</p>
 
-		<p>No aria</p>
-	<ul class="social-share">
-		<li><a href="#link-to-twitter"><i class="fab fa-twitter"></i></a></li>
-		<li><a href="#link-to-instagram"><i class="fab fa-instagram"></i></a></li>
-	</ul>
+<pre>
+HTML:
+&lt;a href="your-url"
+	aria-label="lees meer over bijen houden"&gt;
+	lees meer
+&lt;/a&gt;
+</pre>
 
-	<p>aria-hidden and acreen-reader-text class</p>
-	<ul class="social-share">
-		<li><a href="#link-to-twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span class="screen-reader-text">Follow us on Twitter</span></a></li>
-		<li><a href="#link-to-instagram"><i class="fab fa-instagram" aria-hidden="true"></i><span class="screen-reader-text">Follow us on Instagram</span></a></li>
-	</ul>
+	<p class="demo-link">
+		4. of zonder ARIA maar met CSS .screen-reader-text class<br />
+		<a href="#">lees meer
+			<span class="screen-reader-text"> over bijen houden</span>
+		</a>
+	</p>
 
-	<p>aria-hidden and aria-label</p>
-	<ul class="social-share">
-		<li><a href="#link-to-twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a></li>
-		<li><a href="#link-to-instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" ></i></a></li>
-	</ul>
+<pre>
+HTML:
+&lt;a href="your-url">
+	lees meer
+	&lt;span class="screen-reader-text"> over bijen houden&lt;/span>
+&lt;/a>
 
+CSS:
+	.screen-reader-text {
+		border: 0;
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(50%);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		width: 1px;
+		word-wrap: normal;
+	}
+</pre>
 
-	<p>No aria</p>
-	<pre>
-		&lt;ul class="social-share"&gt;
-		&lt;li>
-			&lt;a href="#link-to-twitter">
-				&lt;i class="fab fa-twitter">&lt;/i>
-			&lt;/a>
-		&lt;/li>
+	<div  class="demo-link">
 
-		&lt;li>
-			&lt;a href="#link-to-instagram">
-				&lt;i class="fab fa-instagram">&lt;/i>
-			&lt;/a>
-		&lt;/li>
-		&lt;/ul>
-	</pre>
-		<p>aria-hidden and acreen-reader-text class</p>
-	<pre>
-	&lt;ul class="social-share"&gt;
-		&lt;li>
-			&lt;a href="#link-to-twitter">
-				&lt;i class="fab fa-twitter" aria-hidden="true">&lt;/i>
-				&lt;span class="screen-reader-text">Follow us on Twitter</span>
-			&lt;/a>
-		&lt;/li>
-
-		&lt;li>
-			&lt;a href="#link-to-instagram">
-				&lt;i class="fab fa-instagram" aria-hidden="true">&lt;/i>
-				&lt;span class="screen-reader-text">Follow us on Instagram</span>
-			&lt;/a>
-		&lt;/li>
-	&lt;/ul>
-	</pre>
-		<p>aria-hidden and aria-label</p>
-	<pre>
-	&lt;ul class="social-share"&gt;
-		&lt;li>
-			&lt;a href="#link-to-twitter" aria-label="Follow us on Twitter">
-			&lt;i class="fab fa-twitter">&lt;/i>
-			&lt;/a>
-		&lt;/li>
-		&ltli>
-			&lt;a href="#link-to-instagram" aria-label="Follow us on Twitter">
-				&lt;i class="fab fa-instagram" >&lt;/i>
-			&lt;/a>
-		&lt;/li>
-
-	&lt;/ul>
-	</pre>
+		<p>Lege links zonder aria-label</p>
+		<ul class="social-share">
+			<li><a href="#link-to-twitter"><span class="fab fa-twitter"></span></a></li>
+			<li><a href="#link-to-instagram"><span class="fab fa-instagram"></span></a></li>
+		</ul>
 
 	</div>
 
-	<div class="highlight">
-		Pro tip : <a href="https://tink.uk/accessible-emoji/">Accessible emoijs</a>
 	<pre>
-		&lt;span role="img" aria-label="Snowman"&gt;&#9731;&lt;/span&gt;
-	</pre>
+Code zonder aria-label:
+&lt;a href="link-to-twitter">
+	&lt;span class="fab fa-twitter">&lt;/span>
+&lt;/a>
 
-		<span role="img" aria-label="Snowman">&#9731;</span>
+&lt;a href="link-to-instagram">
+	&lt;span class="fab fa-instagram">&lt;/span>
+&lt;/a>
+</pre>
 
-
-
+	<div  class="demo-link">
+		<p>Lege links met aria-label</p>
+		<ul class="social-share">
+			<li><a href="#link-to-twitter" aria-label="Volg ons op Twitter"><span class="fab fa-twitter"></span></a></li>
+			<li><a href="#link-to-instagram" aria-label="Volg ons op Instagram"><span class="fab fa-instagram" ></span></a></li>
+		</ul>
 	</div>
-	<p><a href="index.html">Back to start page</a></p>
 
+	<pre>
+Code met aria-label:
+&lt;a href="link-to-twitter" aria-label="Volg ons op Twitter">
+	&lt;span class="fab fa-twitter">&lt;/span>
+&lt;/a>
+
+&lt;a href="link-to-instagram" aria-label="Volg ons op Instagram">
+	&lt;span class="fab fa-instagram" >&lt;/span>
+&lt;/a>
+
+</pre>
+
+	<div  class="demo-link">
+
+		<p>Nog beter: Zichtbare tekst bij de icoontjes!</p>
+
+		<h2>Volg ons op:</h2>
+		<ul class="social-share">
+			<li><a href="#link-to-twitter"><span class="fab fa-twitter"></span> Twitter</a></li>
+			<li><a href="#link-to-instagram"><span class="fab fa-instagram" ></span> Instagram</a></li>
+		</ul>
+	</div>
+
+
+	<pre>
+HTML zonder lege links:
+&lt;h2>Volg ons op&lt;/h2>
+&lt;a href="link-to-twitter">
+	&lt;span class="fab fa-twitter">&lt;/span>
+	Twitter
+&lt;/a>
+
+&lt;a href="link-to-instagram">
+	&lt;span class="fab fa-instagram">&lt;/span>
+	Instagram
+&lt;/a>
+
+</pre>
 
 </main>
-
 
 <footer role="contentinfo">
 

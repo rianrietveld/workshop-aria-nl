@@ -21,12 +21,19 @@ footer {
 	font-size: 3em;
 }
 
+.demo-link {
+	display: block;
+	font-size: 1.5em;
+	padding: 3em;
+	margin:1em;
+	background-color: #eeeedd;
+}
+
 pre {
 	font-size: 1.5em;
-	padding: 1em;
+	padding: 3em;
 	margin:1em;
 	background-color: #eeeeee;
-	overflow: hidden;
 }
 
 /* Text meant only for screen readers. */
@@ -38,9 +45,8 @@ pre {
 	margin: -1px;
 	overflow: hidden;
 	padding: 0;
-	position: absolute !important;
 	width: 1px;
-	word-wrap: normal !important;
+	word-wrap: normal;
 }
 
 .screen-reader-text:focus {
@@ -114,6 +120,15 @@ blockquote {
 .social-share li {
 	float: left;
 	padding: 2em;
+}
+
+.social-share li a {
+	text-decoration: none;
+}
+
+.social-share li a:hover,
+.social-share li a:focus {
+	text-decoration: underline;
 }
 
 .fab {

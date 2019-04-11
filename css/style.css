@@ -12,8 +12,9 @@ footer {
 	font-size: 0.9em;
 }
 
-.highlight {
-
+.code, code {
+	font-family: Courier, sans-serif;
+	font-size: 1em;
 }
 
 .big {

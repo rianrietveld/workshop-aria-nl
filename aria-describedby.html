@@ -1,10 +1,10 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="nl">
 <head>
 	<meta charset="utf-8">
 
-	<title>aria-describedby - workshop: Who's afraid of ARIA</title>
+	<title>aria-describedby - Wie is er bang voor ARIA</title>
 	<meta name="author" content="Rian Rietveld">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
@@ -15,62 +15,44 @@
 </header>
 
 <main>
-	<p>Without aria-describedby: </p>
 
+	<p>Met aria-describedby kun je de tekst toevoegen aan een ander element en ze samen laten voorlezen.</p>
+
+	<div class="demo-link">
+	<p>Zonder aria-describedby:</p>
 	<form>
-		<label for="alb1">Name</label>
-		<input id="alb1" type="text">
-		<p>Please give your first and last name</p>
+		<label for="name1">Naam</label>
+		<input id="name1" type="text">
+		<p>Vul uw voor en achternaam in</p>
 	</form>
+	</div>
 
 	<pre aria-hidden="true">
-        <code>
-        &lt;label for="alb1"&gt;Name&lt;/label&gt;
-        &lt;input
-            id="alb1"
-            type="text"&gt;
-        &lt;p&gt;Please give your first and last name&lt;/p&gt;</code>
+&lt;label for="name"&gt;Name&lt;/label&gt;
+&lt;input
+	id="name"
+	type="text"&gt;
+
+&lt;p&gt;Vul uw voor en achternaam in&lt;/p&gt;
     </pre>
 
-	<hr />
-
-	<p>With aria-label: </p>
+	<div class="demo-link">
+	<p>Met aria-describedby:</p>
 	<form>
-		<label for="alb2">Name</label>
-		<input id="alb2" type="text" aria-describedby="alb2-description">
-		<p id="alb2-description">Please give your first and last name</p>
+		<label for="name2">Naam</label>
+		<input id="name2" type="text" aria-describedby="description">
+		<p id="description">Vul uw voor en achternaam in</p>
 	</form>
-	<pre aria-hidden="true">
-        <code>
-        &lt;label for="alb2"&gt;Name&lt;/label&gt;
-        &lt;input
-            id="alb2"
-            type="text"
-            aria-describedby="alb2-description"&gt;
-        &lt;p id="alb2-description"&gt;Please give your first and last name&lt;/p&gt;</code>
+	</div>
+	<pre>
+&lt;label for="name"&gt;Naam&lt;/label&gt;
+&lt;input
+	id="name"
+	type="text"
+	aria-describedby="description"&gt;
+&lt;p id="description"&gt;Vul uw voor en achternaam in&lt;/p&gt;
     </pre>
 
-	<hr />
-
-	<p>Beware: aria-describedby can overrule the placeholder:</p>
-	<form>
-		<label for="alb3">Name</label>
-		<input id="alb3" type="text" aria-describedby="alb3-description" placeholder="first and last name">
-		<p id="alb3-description">Please give your first and last name</p>
-	</form>
-
-	<pre aria-hidden="true">
-        <code>
-        &lt;label for="alb3"&gt;Name&lt;/label&gt;
-        &lt;input
-            id="alb3"
-            type="text"
-            aria-describedby="alb3-description"
-            placeholder="first and last name"&gt;
-        &lt;p id="alb3-description"&gt;Please give your first and last name&lt;/p&gt;</code>
-    </pre>
-
-	<p><a href="index.html">Back to start page</a></p>
 
 </main>
 

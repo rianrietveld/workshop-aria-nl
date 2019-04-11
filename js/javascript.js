@@ -1,21 +1,11 @@
-// Some examples how to support ARIA attributes in your work.
+(function() {
+	let toggle = document.querySelector('#toggle');
+	let target = document.querySelector('#quote');
 
-$(document).ready(function() {
+	toggle.onclick = () => {
+		let expanded = toggle.getAttribute('aria-expanded') === 'true';
 
-	$('.expandable').on('click', function(e) {
-
-		e.preventDefault();
-
-		let $this = $(this);
-
-		$this.attr('aria-expanded', function (i, attr) {
-			return attr === 'true' ? 'false' : 'true'
-		});
-
-		$this.next().attr('aria-hidden', function (i, attr) {
-			return attr === 'true' ? 'false' : 'true'
-		});
-
-	});
-
-});
+		toggle.setAttribute('aria-expanded', !expanded);
+		target.hidden = expanded;
+	}
+})()

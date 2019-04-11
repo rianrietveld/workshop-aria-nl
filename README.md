@@ -1,6 +1,6 @@
-# workshop-aria
+# workshop-aria-nl
 
-This pages are written by [Rian Rietveld](https://rianrietveld.com) for the workshop Who's afraid of ARIA, first given at WordCamp Nijmegen 2018.
+Deze webpagina's zijn geschreven door [Rian Rietveld](https://rianrietveld.com) voor workshops en presentaties over WAI ARIA.
 
-You are free to use/fork/modify this pages for your own use: the code is on GitHub at [github.com/rianrietveld/workshop-aria](https://github.com/rianrietveld/workshop-aria).
-
+- The code staat op de GitHub repository [github.com/rianrietveld/workshop-aria-nl](https://github.com/rianrietveld/workshop-aria-nl).
+- De Github-pagina's staan op [rianrietveld.github.io/workshop-aria-nl]/(https://rianrietveld.github.io/workshop-aria-nl/)

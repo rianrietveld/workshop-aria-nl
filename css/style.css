@@ -1,0 +1,120 @@
+body {
+	font-family: sans-serif;
+	width: 70em;
+	margin: 2em auto;
+	color: #333;
+	background-color: #fefefe;
+}
+
+footer {
+	border-top: 1px solid #757575;
+	margin-top: 4em;
+	font-size: 0.8em;
+}
+
+.highlight {
+
+}
+
+.big {
+	font-size: 3em;
+}
+
+pre {
+	font-size: 1.5em;
+	padding: 1em;
+	margin:1em;
+	background-color: #eeeeee;
+	overflow: hidden;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	clip: auto;
+	clip-path: none;
+	display: block;
+	left: 0.5em;
+	top: 0.5em;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+.post-thumbnail {
+	padding: 0 50px 50px 0;
+	float: left;
+}
+
+button[aria-expanded] {
+	background: #555;
+	border: 1px solid #555;
+	color: #eee;
+	font-size: 1.5em;
+	padding: 0.5em;
+	font-weight: 700;
+	cursor: pointer;
+	letter-spacing: 2px;
+	vertical-align: middle;
+	width: auto;
+}
+
+button[aria-expanded]:focus,
+button[aria-expanded]:hover {
+	background: #eee;
+	color: #555;
+}
+
+button.expandable + [aria-hidden] {
+	display: none;
+}
+
+button.expandable + [aria-hidden="false"] {
+	display: block;
+}
+
+.expanded-content {
+	padding: 1em 0;
+}
+
+blockquote {
+	font-size: 1.3em;
+	margin-left: 0;
+	padding-left: 1em;
+	border-left: 2px solid #555;
+}
+
+.expanded-content blockquote footer {
+	border: 0;
+	margin: 0;
+}
+
+.form-chars-remaining textarea {
+	width:20em;
+	height:5em;
+}
+
+.social-share {
+	overflow: hidden;
+	list-style: none;
+}
+
+.social-share li {
+	float: left;
+	padding: 2em;
+}
+
+.fab {
+	font-size: 3em;
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>aria-labelledby - workshop: Who's afraid of ARIA</title>
+	<meta name="author" content="Rian Rietveld">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+
+<header role="banner">
+	<h1>aria-labelledby</h1>
+</header>
+
+<main>
+	<p>Without aria-labelledby:</p>
+	<form>
+		<label for="alb1">Name</label>
+		<input id="alb1" type="text">
+		<p>Please give your first and last name</p>
+	</form>
+
+	<pre>
+        <code>
+        &lt;label for="alb1"&gt;Name&lt;/label&gt;
+        &lt;input id="alb1" type="text"&gt;
+        &lt;p&gt;Please give your first and last name&lt;/p&gt;
+        </code>
+    </pre>
+
+	<hr />
+
+	<p>With aria-labelledby:</p>
+	<form>
+		<label for="alb2" aria-labelledby="alb2-description">Name</label>
+		<input id="alb2" type="text">
+		<p id="alb2-description">Please give your first and last name</p>
+	</form>
+
+	<pre>
+        <code>
+        &lt;label for="alb1" aria-labelledby="alb2-description"&gt;Name&lt;/label&gt;
+        &lt;input id="alb1" type="text"&gt;
+        &lt;p id="alb2-description"&gt;Please give your first and last name&lt;/p&gt;
+        </code>
+    </pre>
+
+</main>
+
+<footer role="contentinfo">
+	<p>This pages are written by <a href="https://rianrietveld.com">Rian Rietveld</a> for the workshop Who's afraid of ARIA, first given at WordCamp Nijmegen 2018. You are free to use/fork/modify this pages for your own use: the code is on GitHub at <a href="https://github.com/rianrietveld/workshop-aria">github.com/rianrietveld/workshop-aria</a>.</p>
+</footer>
+
+</body>

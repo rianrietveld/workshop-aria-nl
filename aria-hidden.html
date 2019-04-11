@@ -1,0 +1,211 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>aria-hidden - workshop: Who's afraid of ARIA</title>
+	<meta name="author" content="Rian Rietveld">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body>
+
+<header role="banner">
+	<h1>aria-hidden and the .screen-reader-text CSS class</h1>
+</header>
+
+<main>
+
+	<p>Now you see me, now you don't.</p>
+
+	<p><strong>aria-hidden</strong> hides an element from a screen reader but not from vision<br />
+		<strong><a href="https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/">screen-reader-text</a></strong> hides an element from vision but not from a screen reader</p>
+
+	<pre>
+	/* Text meant only for screen readers. */
+	.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+	}
+	</pre>
+
+
+	<h2>Social media sharing links</h2>
+
+	<ul class="social-share">
+		<li><a href="#link-to-twitter"><i class="fab fa-twitter"></i></a></li>
+		<li><a href="#link-to-instagram"><i class="fab fa-instagram"></i></a></li>
+	</ul>
+
+
+	<pre>
+	&lt;ul class="social-share"&gt;
+		&lt;li>
+			&lt;a href="#link-to-twitter">
+				&lt;i class="fab fa-twitter">&lt;/i>
+			&lt;/a>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#link-to-instagram">
+				&lt;i class="fab fa-instagram">&lt;/i>
+			&lt;/a>
+		&lt;/li>
+	&lt;/ul>
+	</pre>
+
+	<h3>Fix</h3>
+	<ul class="social-share">
+		<li><a href="#link-to-twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span class="screen-reader-text">Follow us on Twitter</span></a></li>
+		<li><a href="#link-to-instagram"><i class="fab fa-instagram" aria-hidden="true"></i><span class="screen-reader-text">Follow us on Instagram</span></a></li>
+	</ul>
+
+
+	<pre>
+	&lt;ul class="social-share"&gt;
+		&lt;li>
+			&lt;a href="#link-to-twitter">
+				&lt;i class="fab fa-twitter" aria-hidden="true">&lt;/i>
+				&lt;span class="screen-reader-text">Follow us on Instagram&lt;/span>
+			&lt;/a>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#link-to-instagram">
+				&lt;i class="fab fa-instagram" aria-hidden="true">&lt;/i>
+				&lt;span class="screen-reader-text">Follow us on Instagram&lt;/span>
+			&lt;/a>
+		&lt;/li>
+	&lt;/ul>
+	</pre>
+
+
+<h2>Example: post excerpts in an archive page</h2>
+
+	<h3>Without aria-hidden</h3>
+
+	<div class="highlight">
+	<h4><a href="https://wordpress.org">Meet WordPress</a></h4>
+	<p>
+		<a class="post-thumbnail" href="https://wordpress.org">
+			<img width="100" height="100" src="img/logo-wp.png" alt="Logo WordPress" /></a>
+		WordPress is open source software you can use to create a beautiful website, blog, or app.
+		Beautiful designs, powerful features, and the freedom to build anything you want.
+		WordPress is both free and priceless at the same time.<br />
+		<a href="https://wordpress.org">Read More...</a>
+	</p>
+	</div>
+
+	<pre>
+    &lt;h2&gt;&lt;a href="https://wordpress.org"&gt;Meet WordPress&lt;/a&gt;&lt;/h2&gt;
+    &lt;p&gt;
+
+        &lt;a class="post-thumbnail" href="https://wordpress.org"&gt;
+
+            &lt;img width="100" height="100"
+                 src="../images/logo-wp.png"
+                 alt="Meet WordPress" /&gt;
+        &lt;/a&gt;
+
+        WordPress is open source software you can use to create a beautiful
+        website, blog, or app. Beautiful designs, powerful features, and the freedom to build
+        anything you want. WordPress is both free and priceless at the same time.&lt;br /&gt;
+
+        &lt;a href="https://wordpress.org"&gt;Read More...&lt;/a&gt;
+
+    &lt;/p&gt;
+    </pre>
+	<hr />
+
+	<h3>With aria-hidden</h3>
+	<div class="highlight">
+	<h4><a href="https://wordpress.org">Meet WordPress</a></h4>
+	<p><a class="post-thumbnail" href="https://wordpress.org" aria-hidden="true">
+		<img width="100" height="100" src="img/logo-wp.png" alt="Meet WordPress" /></a>WordPress is open source software you can use to create a beautiful website, blog, or app.
+		Beautiful designs, powerful features, and the freedom to build anything you want. WordPress is both free and priceless at the same time.<br />
+		<a href="https://wordpress.org" aria-hidden="true">Read More...</a></p>
+	</div>
+
+	<pre>
+
+    &lt;h2&gt;&lt;a href="https://wordpress.org"&gt;Meet WordPress&lt;/a&gt;&lt;/h2&gt;
+
+    &lt;p&gt;
+
+		&lt;a class="post-thumbnail" href="https://wordpress.org"
+            aria-hidden="true"&gt;
+
+            &lt;img width="100" height="100"
+                 src="../images/logo-wp.png"
+                 alt="Meet WordPress" /&gt;
+        &lt;/a&gt;
+
+        WordPress is open source software you can use to create a beautiful
+        website, blog, or app. Beautiful designs, powerful features, and the freedom to build
+        anything you want. WordPress is both free and priceless at the same time.&gt;br /&gt;
+
+        &lt;a href="https://wordpress.org" aria-hidden="true"&gt;
+			Read More...
+		&lt;/a&gt;
+
+    &lt;/p&gt;
+    </pre>
+
+	<hr />
+
+	<h3>With aria-hidden and tabindex=-1</h3>
+	<div class="highlight">
+	<h2><a href="https://wordpress.org">Meet WordPress </a></h2>
+	<p><a class="post-thumbnail" href="https://wordpress.org"  aria-hidden="true"  tabindex="-1">
+		<img width="100" height="100" src="img/logo-wp.png" alt="Meet WordPress" />
+	</a>WordPress is open source software you can use to create a beautiful website, blog, or app.
+		Beautiful designs, powerful features, and the freedom to build anything you want. WordPress is both free and priceless at the same time.<br />
+		<a href="https://wordpress.org" aria-hidden="true"  tabindex="-1">Read More...</a></p>
+	</div>
+
+	<pre>
+    &lt;h2&gt;&lt;a href="https://wordpress.org"&gt;Meet WordPress&lt;/a&gt;&lt;/h2&gt;
+
+	&lt;p>
+
+        &lt;a class="post-thumbnail" href="https://wordpress.org"
+            aria-hidden="true"
+            tabindex="-1"&gt;
+
+            &lt;img width="100" height="100"
+                 src="../images/logo-wp.png"
+                 alt="Meet WordPress with aria-hidden and tabindex=-1" /&gt;
+        &lt;/a&gt;
+
+        WordPress is open source software you can use to create a beautiful
+        website, blog, or app.&lt;/p&gt;
+        &lt;p&gt;Beautiful designs, powerful features, and the freedom to build
+        anything you want.<br />
+
+        &lt;a href="https://wordpress.org" aria-hidden="true" tabindex="-1"&gt;
+	        Read More...
+	    &lt;/a&gt;
+
+    &lt;/p&gt;
+
+</pre>
+
+
+
+	<p><a href="index.html">Back to start page</a></p>
+
+</main>
+
+
+<footer role="contentinfo">
+	<p>This pages are written by <a href="https://rianrietveld.com">Rian Rietveld</a> for the workshop Who's afraid of ARIA, first given at WordCamp Nijmegen 2018. You are free to use/fork/modify this pages for your own use: the code is on GitHub at <a href="https://github.com/rianrietveld/workshop-aria">github.com/rianrietveld/workshop-aria</a>.</p>
+</footer>
+
+</body>

@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Landmarks - workshop: Who's afraid of ARIA</title>
+	<meta name="author" content="Rian Rietveld">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+<body>
+
+<header role="banner">
+	<h1>Landmarks and roles</h1>
+</header>
+
+<main>
+
+	<p>Landmarks give structure to your page. It's is also used to navigate and understand a page quickly.</p>
+
+	For example:
+	<ul>
+		<li>&lt;header role="banner"&gt;</li>
+		<li>&lt;nav&gt;</li>
+		<li>&lt;main&gt;</li>
+		<li>&lt;aside&gt;</li>
+		<li>&lt;footer role="contentinfo"&gt;</li>
+		<li>&lt;form&gt;</li>
+		<li>&lt;form role="search"&gt;</li>
+	</ul>
+
+	For IE 10 and less also:
+	<ul>
+		<li>&lt;nav role="navigation"&gt;</li>
+		<li>&lt;main role="main"&gt;</li>
+		<li>&lt;aside role="complementary"&gt;</li>
+	</ul>
+
+	If you have more then one of the same landmark: add aria-label
+	<ul>
+		<li>&lt;nav aria-label="Main navigation"&gt; or even &lt;nav aria-label="Main"&gt; </li>
+		<li>&lt;nav aria-label="Cocial media links"&gt;</li>
+		<li>&lt;aside role="Contact information"&gt;</li>
+		<li>&lt;aside aria-label="Related posts"&gt;</li>
+		<li>&lt;section aria-label="In the news"&gt;</li>
+	</ul>
+
+	<strong>Note</strong>: Only one &lt;main&gt; per page, with the main content.
+
+	<p>Test with the Apple VoiceOver roter in Safari or with the <a href="http://matatk.agrip.org.uk/landmarks/>">Landmarks browers addon</a> for FireFox/CHome/Opera</p>
+
+	<h2>Look at the landmark structure of for example</h2>
+	<ul>
+		<li><a href="https://www.gov.uk">GOV.UK</a></li>
+		<li><a href="https://central.wordcamp.org">WordCamp Central</a></li>
+		<li><a href="https://www.bbc.com/news">BBC</a></li>
+		<li><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
+	</ul>
+
+	<h2>Resources</h2>
+	<ul>
+		<li><a href="https://make.wordpress.org/accessibility/handbook/markup/aria-landmarks/">ARIA Landmarks in the WPA11y Handbook</a></li>
+		<li><a href="https://www.w3.org/TR/wai-aria/#landmark_roles">Landmark Roles specifications</a></li>
+	</ul>
+	<p><a href="index.html">Back to start page</a></p>
+
+</main>
+
+<footer role="contentinfo">
+	<p>This pages are written by <a href="https://rianrietveld.com">Rian Rietveld</a> for the workshop Who's afraid of ARIA, first given at WordCamp Nijmegen 2018. You are free to use/fork/modify this pages for your own use: the code is on GitHub at <a href="https://github.com/rianrietveld/workshop-aria">github.com/rianrietveld/workshop-aria</a>.</p>
+</footer>
+
+</body>

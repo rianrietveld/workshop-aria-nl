@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>aria-describedby - workshop: Who's afraid of ARIA</title>
+	<meta name="author" content="Rian Rietveld">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+
+<header role="banner">
+	<h1>aria-describedby</h1>
+</header>
+
+<main>
+	<p>Without aria-describedby: </p>
+
+	<form>
+		<label for="alb1">Name</label>
+		<input id="alb1" type="text">
+		<p>Please give your first and last name</p>
+	</form>
+
+	<pre aria-hidden="true">
+        <code>
+        &lt;label for="alb1"&gt;Name&lt;/label&gt;
+        &lt;input
+            id="alb1"
+            type="text"&gt;
+        &lt;p&gt;Please give your first and last name&lt;/p&gt;</code>
+    </pre>
+
+	<hr />
+
+	<p>With aria-label: </p>
+	<form>
+		<label for="alb2">Name</label>
+		<input id="alb2" type="text" aria-describedby="alb2-description">
+		<p id="alb2-description">Please give your first and last name</p>
+	</form>
+	<pre aria-hidden="true">
+        <code>
+        &lt;label for="alb2"&gt;Name&lt;/label&gt;
+        &lt;input
+            id="alb2"
+            type="text"
+            aria-describedby="alb2-description"&gt;
+        &lt;p id="alb2-description"&gt;Please give your first and last name&lt;/p&gt;</code>
+    </pre>
+
+	<hr />
+
+	<p>Beware: aria-describedby can overrule the placeholder:</p>
+	<form>
+		<label for="alb3">Name</label>
+		<input id="alb3" type="text" aria-describedby="alb3-description" placeholder="first and last name">
+		<p id="alb3-description">Please give your first and last name</p>
+	</form>
+
+	<pre aria-hidden="true">
+        <code>
+        &lt;label for="alb3"&gt;Name&lt;/label&gt;
+        &lt;input
+            id="alb3"
+            type="text"
+            aria-describedby="alb3-description"
+            placeholder="first and last name"&gt;
+        &lt;p id="alb3-description"&gt;Please give your first and last name&lt;/p&gt;</code>
+    </pre>
+
+	<p><a href="index.html">Back to start page</a></p>
+
+</main>
+
+
+<footer role="contentinfo">
+	<p>This pages are written by <a href="https://rianrietveld.com">Rian Rietveld</a> for the workshop Who's afraid of ARIA, first given at WordCamp Nijmegen 2018. You are free to use/fork/modify this pages for your own use: the code is on GitHub at <a href="https://github.com/rianrietveld/workshop-aria">github.com/rianrietveld/workshop-aria</a>.</p>
+</footer>
+
+</body>

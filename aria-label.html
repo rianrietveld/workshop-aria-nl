@@ -1,0 +1,167 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>aria-label - workshop: Who's afraid of ARIA</title>
+	<meta name="author" content="Rian Rietveld">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body>
+
+<header role="banner">
+	<h1>aria-label</h1>
+</header>
+
+<main>
+
+	<p>With an aria label you can add additional information about an element.</p>
+
+	<div class="highlight">
+	<p>1: Without aria-label:</p>
+	<pre>
+    &lt;a href="your-url"&gt;
+        edit
+    &lt;/a&gt;
+	</pre>
+
+	<a href="#">edit</a>
+	</div>
+
+	<div class="highlight">
+	<p>2: With aria-label "edit my awesome post":</p>
+
+	<pre>
+	&lt;a href="your-url"
+		aria-label="edit my awesome post"&gt;
+		edit
+	&lt;/a&gt;
+	</pre>
+
+	<a href="#" aria-label="edit: my awesome post">edit</a>
+	</div>
+
+	<div class="highlight">
+	<p>3. But beware: an aria-label overrides the link text:</p>
+
+	<pre>
+    &lt;a href="your-url"
+        aria-label="edit my awesome post"&gt;
+		delete
+	&lt;/a&gt;
+	</pre>
+
+	<a href="#" aria-label="edit: my awesome post">delete</a>
+	</div>
+
+	<div class="highlight">
+	<p>4. Or don't use ARIA but the .screen-reader-text class</p>
+	<pre>
+    &lt;a href="your-url"&gt;
+         edit&lt;span class="screen-reader-text"> my awesome post&lt;/span>
+    &lt;/a&gt;
+	</pre>
+
+	<a href="#">edit<span class="screen-reader-text">: my awesome post</span></a>
+	</div>
+
+
+	<div class="highlight">
+		<p>no link text versus aria-label versus .screen-reader-text class</p>
+
+		<p>No aria</p>
+	<ul class="social-share">
+		<li><a href="#link-to-twitter"><i class="fab fa-twitter"></i></a></li>
+		<li><a href="#link-to-instagram"><i class="fab fa-instagram"></i></a></li>
+	</ul>
+
+	<p>aria-hidden and acreen-reader-text class</p>
+	<ul class="social-share">
+		<li><a href="#link-to-twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span class="screen-reader-text">Follow us on Twitter</span></a></li>
+		<li><a href="#link-to-instagram"><i class="fab fa-instagram" aria-hidden="true"></i><span class="screen-reader-text">Follow us on Instagram</span></a></li>
+	</ul>
+
+	<p>aria-hidden and aria-label</p>
+	<ul class="social-share">
+		<li><a href="#link-to-twitter" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a></li>
+		<li><a href="#link-to-instagram" aria-label="Follow us on Instagram"><i class="fab fa-instagram" ></i></a></li>
+	</ul>
+
+
+	<p>No aria</p>
+	<pre>
+		&lt;ul class="social-share"&gt;
+		&lt;li>
+			&lt;a href="#link-to-twitter">
+				&lt;i class="fab fa-twitter">&lt;/i>
+			&lt;/a>
+		&lt;/li>
+
+		&lt;li>
+			&lt;a href="#link-to-instagram">
+				&lt;i class="fab fa-instagram">&lt;/i>
+			&lt;/a>
+		&lt;/li>
+		&lt;/ul>
+	</pre>
+		<p>aria-hidden and acreen-reader-text class</p>
+	<pre>
+	&lt;ul class="social-share"&gt;
+		&lt;li>
+			&lt;a href="#link-to-twitter">
+				&lt;i class="fab fa-twitter" aria-hidden="true">&lt;/i>
+				&lt;span class="screen-reader-text">Follow us on Twitter</span>
+			&lt;/a>
+		&lt;/li>
+
+		&lt;li>
+			&lt;a href="#link-to-instagram">
+				&lt;i class="fab fa-instagram" aria-hidden="true">&lt;/i>
+				&lt;span class="screen-reader-text">Follow us on Instagram</span>
+			&lt;/a>
+		&lt;/li>
+	&lt;/ul>
+	</pre>
+		<p>aria-hidden and aria-label</p>
+	<pre>
+	&lt;ul class="social-share"&gt;
+		&lt;li>
+			&lt;a href="#link-to-twitter" aria-label="Follow us on Twitter">
+			&lt;i class="fab fa-twitter">&lt;/i>
+			&lt;/a>
+		&lt;/li>
+		&ltli>
+			&lt;a href="#link-to-instagram" aria-label="Follow us on Twitter">
+				&lt;i class="fab fa-instagram" >&lt;/i>
+			&lt;/a>
+		&lt;/li>
+
+	&lt;/ul>
+	</pre>
+
+	</div>
+
+	<div class="highlight">
+		Pro tip : <a href="https://tink.uk/accessible-emoji/">Accessible emoijs</a>
+	<pre>
+		&lt;span role="img" aria-label="Snowman"&gt;&#9731;&lt;/span&gt;
+	</pre>
+
+		<span role="img" aria-label="Snowman">&#9731;</span>
+
+
+
+	</div>
+	<p><a href="index.html">Back to start page</a></p>
+
+
+</main>
+
+
+<footer role="contentinfo">
+	<p>This pages are written by <a href="https://rianrietveld.com">Rian Rietveld</a> for the workshop Who's afraid of ARIA, first given at WordCamp Nijmegen 2018. You are free to use/fork/modify this pages for your own use: the code is on GitHub at <a href="https://github.com/rianrietveld/workshop-aria">github.com/rianrietveld/workshop-aria</a>.</p>
+</footer>
+
+</body>

@@ -1,10 +1,10 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="nl">
 <head>
 	<meta charset="utf-8">
 
-	<title>aria-labelledby - workshop: Who's afraid of ARIA</title>
+	<title>aria-labelledby  - Wie is er bang van ARIA</title>
 	<meta name="author" content="Rian Rietveld">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
@@ -15,36 +15,38 @@
 </header>
 
 <main>
-	<p>Without aria-labelledby:</p>
+	<p>Met een aria-label op links kun je de tekst van andere elementen overschrijven.</p>
+	<div class="demo-link">
+	<p>Zonder aria-labelledby:</p>
 	<form>
-		<label for="alb1">Name</label>
-		<input id="alb1" type="text">
-		<p>Please give your first and last name</p>
+		<label for="naam1">Naam</label>
+		<input id="naam1" type="text">
+		<p>Vul uw voor en achternaam in</p>
 	</form>
-
+	</div>
 	<pre>
-        <code>
-        &lt;label for="alb1"&gt;Name&lt;/label&gt;
-        &lt;input id="alb1" type="text"&gt;
-        &lt;p&gt;Please give your first and last name&lt;/p&gt;
-        </code>
+HTML code:
+&lt;label for="naam1"&gt;Naam&lt;/label&gt;
+&lt;input id="naam1" type="text"&gt;
+
+&lt;p&gt;Vul uw voor en achternaam in&lt;/p&gt;
     </pre>
 
-	<hr />
-
-	<p>With aria-labelledby:</p>
+	<div class="demo-link">
+	<p>Met aria-labelledby:</p>
 	<form>
-		<label for="alb2" aria-labelledby="alb2-description">Name</label>
-		<input id="alb2" type="text">
-		<p id="alb2-description">Please give your first and last name</p>
+		<label for="naam2" aria-labelledby="alb2-description">Naam</label>
+		<input id="naam2" type="text">
+		<p id="alb2-description">Vul uw voor en achternaam in</p>
 	</form>
+	</div>
 
 	<pre>
-        <code>
-        &lt;label for="alb1" aria-labelledby="alb2-description"&gt;Name&lt;/label&gt;
-        &lt;input id="alb1" type="text"&gt;
-        &lt;p id="alb2-description"&gt;Please give your first and last name&lt;/p&gt;
-        </code>
+HTML code:
+&lt;label for="naam2" aria-labelledby="description"&gt;Naam&lt;/label&gt;
+&lt;input id="naam2" type="text"&gt;
+
+&lt;p id="description"&gt;Vul uw voor en achternaam in&lt;/p&gt;
     </pre>
 
 </main>

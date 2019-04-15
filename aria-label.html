@@ -20,54 +20,56 @@
 
 	<p>Met een aria-label op links kun je de inhoud overschrijven en er wat duidelijkers van maken.</p>
 
-	<p class="demo-link">
-		1: Link, zonder aria-label:<br />
-		<a href="#" >lees meer</a>
-	</p>
+	<div  class="demo-link">
+		<p>
+			Gewone link:<br />
+			<a href="#" >lees meer</a>
+		</p>
 
-<pre>
-HTML:
+		<pre>
 &lt;a href="your-url"&gt;
 	lees meer
 &lt;/a&gt;
-</pre>
+		</pre>
+	</div>
 
-	<p class="demo-link">
-		2: Link met aria-label "lees meer over toegankelijke websites":<br />
-		<a href="#" aria-label="lees meer over toegankelijke websites">lees meer</a>
-	</p>
+	<div  class="demo-link">
+		<p>
+			Link met aria-label "lees meer over toegankelijke websites":<br />
+			<a href="#" aria-label="lees meer over toegankelijke websites">lees meer</a>
+		</p>
 
-<pre>
-HTML:
+		<pre>
 &lt;a href="your-url"
 	aria-label="lees meer over toegankelijke websites"&gt;
 	lees meer
 &lt;a&gt;
-</pre>
+		</pre>
+	</div>
 
+	<div  class="demo-link">
+		<p>
+			Maar pas op! Een aria-label overschrijft de linktekst:<br />
+			<a href="#" aria-label="lees meer over bijen houden">lees meer</a>
+		</p>
 
-	<p class="demo-link">
-		3. Maar pas op! Een aria-label overschrijft de linktekst:<br />
-		<a href="#" aria-label="lees meer over bijen houden">lees meer</a>
-	</p>
-
-<pre>
-HTML:
+		<pre>
 &lt;a href="your-url"
 	aria-label="lees meer over bijen houden"&gt;
 	lees meer
 &lt;/a&gt;
-</pre>
+		</pre>
+	</div>
 
-	<p class="demo-link">
-		4. of zonder ARIA maar met CSS .screen-reader-text class<br />
-		<a href="#">lees meer
-			<span class="screen-reader-text"> over bijen houden</span>
-		</a>
-	</p>
+	<div  class="demo-link">
+		<p>
+			Of zonder ARIA maar met CSS .screen-reader-text class<br />
+			<a href="#">lees meer
+				<span class="screen-reader-text"> over bijen houden</span>
+			</a>
+		</p>
 
-<pre>
-HTML:
+		<pre>
 &lt;a href="your-url">
 	lees meer
 	&lt;span class="screen-reader-text"> over bijen houden&lt;/span>
@@ -85,19 +87,18 @@ CSS:
 		width: 1px;
 		word-wrap: normal;
 	}
-</pre>
+		</pre>
+
+	</div>
 
 	<div  class="demo-link">
-
 		<p>Lege links zonder aria-label</p>
 		<ul class="social-share">
 			<li><a href="#link-to-twitter"><span class="fab fa-twitter"></span></a></li>
 			<li><a href="#link-to-instagram"><span class="fab fa-instagram"></span></a></li>
 		</ul>
 
-	</div>
-
-	<pre>
+		<pre>
 Code zonder aria-label:
 &lt;a href="link-to-twitter">
 	&lt;span class="fab fa-twitter">&lt;/span>
@@ -106,7 +107,8 @@ Code zonder aria-label:
 &lt;a href="link-to-instagram">
 	&lt;span class="fab fa-instagram">&lt;/span>
 &lt;/a>
-</pre>
+		</pre>
+	</div>
 
 	<div  class="demo-link">
 		<p>Lege links met aria-label</p>
@@ -114,9 +116,8 @@ Code zonder aria-label:
 			<li><a href="#link-to-twitter" aria-label="Volg ons op Twitter"><span class="fab fa-twitter"></span></a></li>
 			<li><a href="#link-to-instagram" aria-label="Volg ons op Instagram"><span class="fab fa-instagram" ></span></a></li>
 		</ul>
-	</div>
 
-	<pre>
+		<pre>
 Code met aria-label:
 &lt;a href="link-to-twitter" aria-label="Volg ons op Twitter">
 	&lt;span class="fab fa-twitter">&lt;/span>
@@ -126,7 +127,8 @@ Code met aria-label:
 	&lt;span class="fab fa-instagram" >&lt;/span>
 &lt;/a>
 
-</pre>
+		</pre>
+	</div>
 
 	<div  class="demo-link">
 
@@ -137,8 +139,6 @@ Code met aria-label:
 			<li><a href="#link-to-twitter"><span class="fab fa-twitter"></span> Twitter</a></li>
 			<li><a href="#link-to-instagram"><span class="fab fa-instagram" ></span> Instagram</a></li>
 		</ul>
-	</div>
-
 
 	<pre>
 HTML zonder lege links:
@@ -154,6 +154,8 @@ HTML zonder lege links:
 &lt;/a>
 
 </pre>
+
+	</div>
 
 </main>
 

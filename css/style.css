@@ -22,8 +22,6 @@ h2, h3, h4 {
 	margin-bottom: 0;
 }
 
-
-
 a:hover,
 a:focus {
 	text-decoration: none;
@@ -55,6 +53,14 @@ input:focus{
 	letter-spacing: 2px;
 	vertical-align: middle;
 	width: auto;
+	margin: 0.5em 0;
+}
+
+
+#submit:hover,
+#submit:focus {
+	background: #eee;
+	color: #c00;
 }
 
 .description {

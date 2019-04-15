@@ -68,7 +68,7 @@ pre {
 	float: left;
 }
 
-button[aria-expanded] {
+button {
 	background: #555;
 	border: 1px solid #555;
 	color: #eee;
@@ -81,8 +81,8 @@ button[aria-expanded] {
 	width: auto;
 }
 
-button[aria-expanded]:focus,
-button[aria-expanded]:hover {
+button:focus,
+button:hover {
 	background: #eee;
 	color: #555;
 }

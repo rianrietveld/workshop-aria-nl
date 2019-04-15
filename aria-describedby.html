@@ -3,9 +3,10 @@
 <html lang="nl">
 <head>
 	<meta charset="utf-8">
-
 	<title>aria-describedby - Wie is er bang voor ARIA</title>
 	<meta name="author" content="Rian Rietveld">
+	<link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
@@ -23,9 +24,8 @@
 	<form>
 		<label for="name1">Naam</label>
 		<input id="name1" type="text">
-		<p>Vul uw voor en achternaam in</p>
+		<p class="description">Vul uw voor en achternaam in</p>
 	</form>
-	</div>
 
 	<pre aria-hidden="true">
 &lt;label for="name"&gt;Name&lt;/label&gt;
@@ -35,15 +35,15 @@
 
 &lt;p&gt;Vul uw voor en achternaam in&lt;/p&gt;
     </pre>
-
+	</div>
 	<div class="demo-link">
 	<p>Met aria-describedby:</p>
 	<form>
 		<label for="name2">Naam</label>
 		<input id="name2" type="text" aria-describedby="description">
-		<p id="description">Vul uw voor en achternaam in</p>
+		<p id="description" class="description">Vul uw voor en achternaam in</p>
 	</form>
-	</div>
+
 	<pre>
 &lt;label for="name"&gt;Naam&lt;/label&gt;
 &lt;input
@@ -52,7 +52,7 @@
 	aria-describedby="description"&gt;
 &lt;p id="description"&gt;Vul uw voor en achternaam in&lt;/p&gt;
     </pre>
-
+	</div>
 
 </main>
 

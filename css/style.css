@@ -16,6 +16,14 @@ h1, h2, h3, h4 {
 	font-family: 'Viga', sans-serif;
 }
 
+h2, h3, h4 {
+	font-family: 'Viga', sans-serif;
+	margin-top: 3em;
+	margin-bottom: 0;
+}
+
+
+
 a:hover,
 a:focus {
 	text-decoration: none;
@@ -23,12 +31,36 @@ a:focus {
 
 input {
 	border: #757575 1px solid;
+	font-size: 0.7em;
+	padding: 0.5em;
 }
 
 input:focus{
 	border: #333 2px solid;
 }
 
+#notice {
+	color: darkgreen;
+	font-weight: 700;
+}
+
+#submit {
+	background: #c00;
+	border: 1px solid #555;
+	color: #eee;
+	font-size: 0.7em;
+	padding: 0.5em;
+	font-weight: 700;
+	cursor: pointer;
+	letter-spacing: 2px;
+	vertical-align: middle;
+	width: auto;
+}
+
+.description {
+	font-size: 0.7em;
+	margin: 0 0 2em 0;
+}
 .code, code {
 	font-family: Courier, sans-serif;
 	font-size: 1em;

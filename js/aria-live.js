@@ -6,7 +6,7 @@
     saveButton.addEventListener('click', saveSettings);
 
     function saveSettings() {
-        alert.textContent = "Uw bericht is succesvol verstuurd, dank u wel.";
+        alert.textContent = String.fromCharCode(10004) + " Uw bericht is succesvol verstuurd, dank u wel.";
     }
 
 })()

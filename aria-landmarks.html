@@ -20,62 +20,65 @@
 
 	<p>Landmarks geven structuur aan je pagina. En screen reader gebruikers kunnen er snel mee navigeren.</p>
 
-	<p>Bijvoorbeeld:</p>
+	<h2>Voorbeelden van landmarks</h2>
+	<p><strong>Belangrijk</strong>: &Eacute;&eacute;n <code>&lt;main&gt;</code> per pagina, liefst waar de hoofdinhoud start.</p>
+
 	<div class="demo-link">
-	<ul class="code">
-		<li>&lt;header&gt;</li>
-		<li>&lt;nav&gt;</li>
-		<li>&lt;main&gt;</li>
-		<li>&lt;section&gt;</li>
-		<li>&lt;aside&gt;</li>
-		<li>&lt;footer&gt;</li>
-	</ul>
+		<ul>
+			<li>&lt;header&gt;</li>
+			<li>&lt;nav&gt;</li>
+			<li>&lt;main&gt;</li>
+			<li>&lt;section&gt;</li>
+			<li>&lt;aside&gt;</li>
+			<li>&lt;footer&gt;</li>
+		</ul>
 	</div>
+
+	<h3>Verschillende functies</h3>
 	<div class="demo-link">
-	<ul class="code">
-		<li>&lt;header&gt;</li>
-		<li>&lt;header role="banner"></li>
-	</ul>
-	</div>
-	<div class="demo-link">
-		<ul class="code">
+		<ul>
+			<li>&lt;header&gt;</li>
+			<li>&lt;header role="banner"></li>
+		</ul>
+
+		<ul>
 			<li>&lt;footer&gt;</li>
 			<li>&lt;footer role="contentinfo"></li>
 		</ul>
-	</div>
-	<div class="demo-link">
-	<ul class="code">
-		<li>&lt;form&gt;</li>
-		<li>&lt;form role="search"&gt;</li>
-	</ul>
+
+		<ul>
+			<li>&lt;form&gt;</li>
+			<li>&lt;form role="search"&gt;</li>
+		</ul>
 	</div>
 
-	<p><strong>Belangrijk</strong>: &Eacute;&eacute;n  <code>&lt;main&gt;</code> per pagina, liefst waar de hoofdinhoud start.</p>
-
-	<p>Voor Internet Explorer 10 en lager:</p>
-	<ul class="code">
-		<li>&lt;nav role="navigation"&gt;</li>
-		<li>&lt;main role="main"&gt;</li>
-		<li>&lt;aside role="complementary"&gt;</li>
-	</ul>
+	<h3>Onderscheid dezelfde landmarks</h3>
 
 	<p>Als je meer dan een van dezelfde landmark hebt, kun je ze onderscheiden door een aria-label.</p>
 	<div class="demo-link">
-	<ul class="code">
-		<li>&lt;nav aria-label="Hoofd"&gt;</li>
-		<li>&lt;nav aria-label="Social media"&gt;</li>
-	</ul>
+		<ul>
+			<li>&lt;nav aria-label="Hoofd"&gt;</li>
+			<li>&lt;nav aria-label="Social media"&gt;</li>
+		</ul>
+
+		<ul>
+			<li>&lt;aside aria-label="Contact informatie"&gt;</li>
+			<li>&lt;aside aria-label="Onze nieuwsbrief"&gt;</li>
+			<li>&lt;aside aria-label="Gerelateerde berichten"&gt;</li>
+		</ul>
 	</div>
 
+	<h3>Oude browsers</h3>
+	<p>Voor Internet Explorer 10 en lager:</p>
 	<div class="demo-link">
-	<ul class="code">
-		<li>&lt;aside aria-label="Contact informatie"&gt;</li>
-		<li>&lt;aside aria-label="Onze nieuwsbrief"&gt;</li>
-		<li>&lt;aside aria-label="Gerelateerde berichten"&gt;</li>
-	</ul>
+		<ul>
+			<li>&lt;nav role="navigation"&gt;</li>
+			<li>&lt;main role="main"&gt;</li>
+			<li>&lt;aside role="complementary"&gt;</li>
+		</ul>
 	</div>
-
-	<p>Test met Apple VoiceOver roter in Safari of met de <a href="http://matatk.agrip.org.uk/landmarks/">Landmarks browers addon</a> voor FireFox, Chrome en Opera.</p>
+	
+	<p>Test met Apple VoiceOver rotor in Safari of met de <a href="http://matatk.agrip.org.uk/landmarks/">Landmarks browers addon</a> voor FireFox, Chrome en Opera.</p>
 
 	<h2>Kijk eens naar de structuur van</h2>
 	<ul>
@@ -85,13 +88,6 @@
 		<li><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
 	</ul>
 
-	<h2>Bronnen</h2>
-	<ul>
-		<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Landmark_roles">Landmarks op MDN</a></li>
-		<li><a href="https://www.w3.org/TR/wai-aria/#landmark_roles">Landmark Roles specifications</a></li>
-		<li><a href="https://make.wordpress.org/accessibility/handbook/markup/aria-landmarks/">ARIA Landmarks in het WordPress accessibility Handbook</a></li>
-
-	</ul>
 
 </main>
 

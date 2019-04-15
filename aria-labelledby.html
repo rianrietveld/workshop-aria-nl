@@ -18,37 +18,35 @@
 <main>
 	<p>Met een aria-labelledby kun je de zichtbare tekst van een formulierveld overschrijven.</p>
 	<div class="demo-link">
-	<p>Zonder aria-labelledby:</p>
-	<form>
-		<label for="naam1">Naam</label>
-		<input id="naam1" type="text">
-		<p>Vul uw voor en achternaam in</p>
-	</form>
-	</div>
-	<pre>
-HTML code:
+		<p>Zonder aria-labelledby:</p>
+		<form>
+			<label for="naam1">Naam</label>
+			<input id="naam1" type="text">
+			<p class="description">Vul uw voor en achternaam in</p>
+		</form>
+
+		<pre>
 &lt;label for="naam1"&gt;Naam&lt;/label&gt;
 &lt;input id="naam1" type="text"&gt;
-
 &lt;p&gt;Vul uw voor en achternaam in&lt;/p&gt;
-    </pre>
-
-	<div class="demo-link">
-	<p>Met aria-labelledby:</p>
-	<form>
-		<label for="naam2" aria-labelledby="alb2-description">Naam</label>
-		<input id="naam2" type="text">
-		<p id="alb2-description">Vul uw voor en achternaam in</p>
-	</form>
+		</pre>
 	</div>
 
-	<pre>
-HTML code:
+	<div class="demo-link">
+		<p>Met aria-labelledby:</p>
+		<form>
+			<label for="naam2" aria-labelledby="alb2-description">Naam</label>
+			<input id="naam2" type="text">
+			<p id="alb2-description" class="description">Vul uw voor en achternaam in</p>
+		</form>
+
+		<pre>
 &lt;label for="naam2" aria-labelledby="description"&gt;Naam&lt;/label&gt;
 &lt;input id="naam2" type="text"&gt;
 
 &lt;p id="description"&gt;Vul uw voor en achternaam in&lt;/p&gt;
-    </pre>
+		</pre>
+	</div>
 
 </main>
 

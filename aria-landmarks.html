@@ -20,22 +20,34 @@
 	<p>Landmarks geven structuur aan je pagina. En screen reader gebruikers kunnen er snel mee navigeren.</p>
 
 	<p>Bijvoorbeeld:</p>
+	<div class="demo-link">
 	<ul class="code">
 		<li>&lt;header&gt;</li>
 		<li>&lt;nav&gt;</li>
 		<li>&lt;main&gt;</li>
 		<li>&lt;section&gt;</li>
 		<li>&lt;aside&gt;</li>
-		<li>&lt;footer role="contentinfo"&gt;</li>
+		<li>&lt;footer&gt;</li>
 	</ul>
+	</div>
+	<div class="demo-link">
 	<ul class="code">
 		<li>&lt;header&gt;</li>
 		<li>&lt;header role="banner"></li>
 	</ul>
+	</div>
+	<div class="demo-link">
+		<ul class="code">
+			<li>&lt;footer&gt;</li>
+			<li>&lt;footer role="contentinfo"></li>
+		</ul>
+	</div>
+	<div class="demo-link">
 	<ul class="code">
 		<li>&lt;form&gt;</li>
 		<li>&lt;form role="search"&gt;</li>
 	</ul>
+	</div>
 
 	<p><strong>Belangrijk</strong>: &Eacute;&eacute;n  <code>&lt;main&gt;</code> per pagina, liefst waar de hoofdinhoud start.</p>
 
@@ -47,18 +59,20 @@
 	</ul>
 
 	<p>Als je meer dan een van dezelfde landmark hebt, kun je ze onderscheiden door een aria-label.</p>
+	<div class="demo-link">
 	<ul class="code">
 		<li>&lt;nav aria-label="Hoofd"&gt;</li>
 		<li>&lt;nav aria-label="Social media"&gt;</li>
 	</ul>
+	</div>
 
+	<div class="demo-link">
 	<ul class="code">
 		<li>&lt;aside aria-label="Contact informatie"&gt;</li>
 		<li>&lt;aside aria-label="Onze nieuwsbrief"&gt;</li>
 		<li>&lt;aside aria-label="Gerelateerde berichten"&gt;</li>
 	</ul>
-
-
+	</div>
 
 	<p>Test met Apple VoiceOver roter in Safari of met de <a href="http://matatk.agrip.org.uk/landmarks/">Landmarks browers addon</a> voor FireFox, Chrome en Opera.</p>
 
@@ -81,6 +95,8 @@
 </main>
 
 <footer role="contentinfo">
+
+	<p><a href="index.html">Terug naar de startpagina</a></p>
 
 	<p>Deze webpagina's zijn geschreven door <a href="https://rianrietveld.com">Rian Rietveld</a> voor demo's workshops en presentaties over WAI ARIA.</p>
 	<ul>
